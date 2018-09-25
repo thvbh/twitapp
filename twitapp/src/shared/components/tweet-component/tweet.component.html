@@ -1,0 +1,42 @@
+<mat-card class="tweet" [ngClass]="{'retweet' : getIsQuote() }">
+  <ng-template #quoteImage>
+    <div class="image-container">
+      <div class="quote-image" *ngIf="getTweet().entities.media.length > 0 && getTweet().entities.media[0].type == 'photo'">
+        <img mat-card-image [src]="getTweet().entities.media[0].mediaUrlHttps">
+      </div>
+    </div>
+  </ng-template>
+  <mat-card-header>
+    <div mat-card-avatar class="mr-10" *ngIf="!getIsQuote()">
+      <img class="mat-user-avatar" [src]=getTweet().user.profileImage>
+    </div>
+    <mat-card-title>
+      <a *ngIf="!getIsQuote(); else notQuote" class="name mr-10" [href]="'https://twitter.com/' + getTweet().user.screenName" target="_blank">{{getTweet().user.name}}</a>
+      <ng-template #notQuote>
+        <span class="name mr-10">{{getTweet().user.name}}</span>
+      </ng-template>
+      <span class="screen-name mr-10">@{{getTweet().user.screenName}}</span>
+      <a class="date" *ngIf="!getIsQuote()" [href]="'https://twitter.com/' + getTweet().user.screenName + '/status/' + getTweet().id" target="_blank">{{getTweet().creationDate | date: 'mediumDate'}}</a>
+    </mat-card-title>
+    <mat-card-subtitle class="text" [innerHtml]="getTweet() | tweet"></mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content *ngIf="getTweet().isRetweet && getTweet().quotedTweet">
+    <div class="retweet-container mt-10">
+      <a [href]="'https://twitter.com/' + getTweet().quotedTweet.user.screenName + '/status/' + getTweet().quotedTweet.id">
+        <app-tweet-component [tweet]="getTweet().quotedTweet" [isQuote]="true"></app-tweet-component>
+      </a>
+    </div>
+  </mat-card-content>
+  <div class="image-container" *ngIf="!getIsQuote(); else quoteImage">
+    <div class="image" *ngIf="getTweet().entities.media.length > 0 && getTweet().entities.media[0].type == 'photo'">
+      <img mat-card-image [src]="getTweet().entities.media[0].mediaUrlHttps">
+    </div>
+  </div>
+  <!--<div class="card-img">-->
+    <!--<img [src]="tweet.entities?.media[0].media_url_https" (click)="media = true" />-->
+  <!--</div>-->
+  <mat-card-actions *ngIf="!getIsQuote()">
+    <div class="shared ml-70"><i class="fa fa-retweet"></i><span class="count ml-10" *ngIf="getTweet().retweetCount">{{getTweet().retweetCount}}</span></div>
+    <div class="likes ml-50"><i class="fa fa-heart-o"></i><span class="count ml-10" *ngIf="getTweet().favCount">{{getTweet().favCount}}</span></div>
+  </mat-card-actions>
+</mat-card>

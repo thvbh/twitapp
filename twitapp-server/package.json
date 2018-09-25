@@ -1,0 +1,12 @@
+{
+  "name": "twitapp-server",
+  "version": "1.0.0",
+  "description": "The server for Twitapp",
+  "author": "mgut",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "twit": "^2.2.11"
+  }
+}

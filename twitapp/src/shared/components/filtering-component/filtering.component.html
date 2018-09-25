@@ -1,0 +1,14 @@
+<div class="component-container">
+  <div class="col-md-12 col-sm-12">
+    <div class="group-box">
+      <mat-form-field class="filter">
+        <input matInput placeholder="Keywords" (keyup.enter)="sendFilters()" [(ngModel)]="filters">
+      </mat-form-field>
+      <button mat-icon-button (click)="sendFilters()"><mat-icon>search</mat-icon></button>
+      <button mat-icon-button (click)="clearFilters()"><mat-icon>clear</mat-icon></button>
+    </div>
+    <div class="replies">
+      <mat-checkbox class="width100" [(ngModel)]="excludeReplies" (change)="sendExcludeReplies()">Exclude replies</mat-checkbox>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+@import '../../../assets/styles/common.scss';
+
+.component-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.input-group-text, button {
+  background-color: $primary;
+  color: $text-white;
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1366px) {
+  .button-text {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .button-text {
+    display: none;
+  }
+}

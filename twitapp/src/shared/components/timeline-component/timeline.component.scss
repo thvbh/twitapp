@@ -1,0 +1,46 @@
+@import '../../../assets/styles/common.scss';
+
+.component-container {
+
+  .loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  text-align: center;
+  h2 {
+    padding: 24px 0;
+    color: $text-faded;
+  }
+
+  .error {
+    color: $error;
+  }
+
+  table {
+    width: 100%;
+
+    .mat-row {
+      border: none;
+
+      td {
+        width: 100%;
+        border: none;
+      }
+
+      td.mat-cell:first-of-type, td.mat-cell:last-of-type {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+  }
+}
+
+

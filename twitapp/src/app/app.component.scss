@@ -1,0 +1,37 @@
+@import '../assets/styles/common.scss';
+
+.app-wrapper {
+  background-color: $background;
+
+  header {
+    height: 100px;
+    text-align: center;
+    background-color: $primary;
+
+    h2 {
+      margin: 30px 0;
+      color: $text-white;
+    }
+  }
+
+  .content {
+    background-color: $content-background;
+    margin: 10px 0;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  h2 {
+    font-size: 1.8em;
+  }
+}
+
+@media screen and (max-width: 307px) {
+  .app-wrapper {
+    header {
+      h2 {
+        margin: 15px 0;
+      }
+    }
+  }
+}

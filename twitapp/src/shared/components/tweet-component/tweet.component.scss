@@ -1,0 +1,108 @@
+@import '../../../assets/styles/common.scss';
+
+.mat-card:not([class*=mat-elevation-z]) {
+  box-shadow: none;
+}
+
+.tweet {
+  color: $text;
+  text-align: left;
+  border: solid 1px $tweet-border;
+
+  .mat-user-avatar {
+    border: 0;
+    border-radius: 50%;
+  }
+
+  .name {
+    font-weight: bold;
+  }
+
+  .date, .screen-name {
+    color: $text-faded;
+  }
+
+  .text {
+    color: $text;
+  }
+
+  .retweet-container {
+    a:link, a:visited, a:hover, a:active {
+      text-decoration: none;
+    }
+
+  }
+
+  .retweet {
+    background-color: inherit;
+    display: flex;
+    padding: 10px;
+    margin-left: 50px;
+  }
+
+  .retweet:hover {
+    cursor: pointer;
+    border: solid 1px $tweet-border-hover;
+  }
+
+  .image {
+    text-align: center;
+    padding: 20px 0 0 60px;
+    img {
+      display: inline-block;
+      max-width: 100%;
+      height: auto;
+      border: 0 solid $image-border;
+      border-radius: 1%;
+    }
+  }
+
+  .quote-image {
+    padding: 0 0 0 60px;
+    img {
+      display: inline-block;
+      max-width: 100%;
+      height: auto;
+      border: 0 solid $image-border;
+      border-radius: 1%;
+      margin: auto;
+    }
+  }
+
+  @media screen and (max-width: 1366px) {
+    .retweet {
+      display: block;
+
+      .quote-image {
+        padding: 0;
+      }
+
+      .screen-name {
+        display: block;
+      }
+    }
+
+  }
+
+  @media screen and (max-width: 340px) {
+    ::ng-deep .retweet {
+      .mat-card-header-text {
+        margin: 0;
+      }
+    }
+  }
+
+  mat-card-actions {
+    display: flex;
+    color: $text-faded;
+    font-size: 1.2em;
+
+    .count {
+      font-size: 1em;
+    }
+  }
+}
+
+.tweet:hover {
+  background-color: $tweet-hover;
+}

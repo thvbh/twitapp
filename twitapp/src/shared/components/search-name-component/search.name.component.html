@@ -1,0 +1,13 @@
+<div class="col-md-12 col-sm-12 component-container">
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <span class="input-group-text">@</span>
+    </div>
+    <input type="text" [(ngModel)]="screenName" (keyup.enter)="sendScreenName()" class="form-control" aria-label="Amount (to the nearest dollar)">
+    <div class="input-group-append">
+      <button class="btn" type="button" (click)="sendScreenName()">
+        <i class="fa fa-twitter"></i> <span class="button-text">Get tweets!</span>
+      </button>
+    </div>
+  </div>
+</div>

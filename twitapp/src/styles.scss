@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Roboto', sans-serif; background-color: #e6ecf0 !important;}
+
+.width100 {
+  width: 100%;
+}
+
+.group-box {
+  display: flex;
+
+  mat-form-field {
+    margin: auto;
+    padding: 0 8px;
+  }
+
+  button {
+    margin: auto;
+  }
+
+}
+

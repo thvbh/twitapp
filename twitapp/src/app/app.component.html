@@ -1,0 +1,35 @@
+<div class="app-wrapper container-fluid">
+  <header class="row">
+    <div class="col-md-12 col-sm-12">
+      <h2>Welcome to Twitapp!</h2>
+    </div>
+  </header>
+  <div class="row">
+    <div class="col-lg-9 col-md-12 col-sm-12">
+      <div class="row">
+        <div class="col-xl-4 col-lg-12 col-md-12">
+          <div class="content">
+            <app-search-name-component (usernameSent)="setScreenName($event)"></app-search-name-component>
+            <app-filtering-component *ngIf="getScreenName()"
+                                     (filtersSent)="setFilters($event)"
+                                     (excludeRepliesSent)="setExcludeReplies($event)"></app-filtering-component>
+          </div>
+        </div>
+        <div class="col-xl-8 col-lg-12 col-md-12">
+          <div class="content">
+            <app-timeline-component (profileSent)="setProfile($event)"
+                                    [screenName]="getScreenName()"
+                                    [filters]="getFilters()"
+                                    [excludeReplies]="getExcludeReplies()"></app-timeline-component>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-12 col-sm-12">
+      <div class="content">
+        <app-profile-component *ngIf="getScreenName() && getProfile()"
+                               [profile]="getProfile()"></app-profile-component>
+      </div>
+    </div>
+  </div>
+</div>

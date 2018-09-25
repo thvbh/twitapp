@@ -1,0 +1,30 @@
+<div class="component-container">
+  <div class="loader" *ngIf="isLoadingResults()">
+    <mat-spinner></mat-spinner>
+  </div>
+  <div *ngIf="!isLoadingResults() && !isServerError()">
+    <h2 *ngIf="!isScreenName()" >Please provide a twitter screen name</h2>
+    <h2 *ngIf="isScreenName() && getError().length > 0" class="error">{{getError()}}</h2>
+    <h2 *ngIf="isScreenName() && getTweets().data.length == 0 && getError().length == 0">
+      <span *ngIf="!getFilters() && !getExcludeReplies()">
+        No tweets found for the provided screen name
+      </span>
+      <span *ngIf="getFilters() || getExcludeReplies()">
+        No matching tweets found
+      </span>
+    </h2>
+  </div>
+  <div *ngIf="!isLoadingResults() && isServerError()">
+    <h2 class="error">Server is not responding</h2>
+  </div>
+  <table mat-table [dataSource]="getTweets()" [hidden]="!isScreenName()">
+    <ng-container matColumnDef="tweet">
+      <td mat-cell *matCellDef="let tweet">
+        <app-tweet-component [tweet]="tweet"></app-tweet-component>
+      </td>
+    </ng-container>
+    <mat-row *matRowDef="let row; columns: getDisplayedColumns()"></mat-row>
+  </table>
+  <mat-paginator [hidden]="!getTweets() || getTweets().data.length == 0 || !isScreenName()"
+                 [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>

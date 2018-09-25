@@ -1,0 +1,16 @@
+<div class="component-container">
+  <div class="col-md-12 col-sm-12">
+    <div class="profile-avatar">
+      <a class="profile-link" [href]="'https://twitter.com/' + getProfile().screenName" target="_blank">
+        <img class="profile-image" [src]="getProfile().profileImage" />
+      </a>
+    </div>
+    <div class="profile-info">
+      <h4 class="name">{{getProfile().name}}</h4>
+      <h6 class="screen-name">@{{getProfile().screenName}}</h6>
+      <p class="description" *ngIf="getProfile().description">{{getProfile().description}}</p>
+      <h6 class="location" *ngIf="getProfile().location"><i class="fa fa-map-marker"></i> {{getProfile().location}}</h6>
+      <h6 class="joined" *ngIf="getProfile().joinDate"><i class="fa fa-calendar"></i> Joined {{getProfile().joinDate | date: 'mediumDate'}}</h6>
+    </div>
+  </div>
+</div>

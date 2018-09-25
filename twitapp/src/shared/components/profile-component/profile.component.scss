@@ -1,0 +1,49 @@
+@import '../../../assets/styles/common.scss';
+
+.component-container {
+  text-align: left;
+
+  .name {
+    color: $text;
+    font-weight: bold;
+  }
+
+  .joined, .location, .screen-name {
+    color: $text-faded;
+  }
+
+  .profile-avatar {
+    margin: auto;
+    background: #fff;
+    border: 5px solid #fff;
+    border-radius: 50%;
+    height: 200px;
+    position: relative;
+    width: 200px;
+
+    .profile-image {
+      border-radius: 50%;
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 10px;
+      width: 100%;
+    }
+  }
+
+  .profile-info {
+    margin-top: 20px;
+    padding-bottom: 20px;
+
+    p {
+      font-size: 0.9em;
+    }
+
+    .fa {
+      height: 16px;
+      width: 16px;
+      margin-right: 5px;
+    }
+  }
+}
+
